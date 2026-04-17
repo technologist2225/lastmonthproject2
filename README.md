@@ -1,49 +1,24 @@
-Product Manager API (Flask)
+# Product Management API (Flask + JSON)
 
-Giới thiệu
+Dự án API Quản lý Sản phẩm sử dụng Python Flask, kiến trúc Blueprint và lưu trữ dữ liệu tạm thời bằng file `product.json`.
 
-Dự án này là một API quản lý sản phẩm viết bằng Flask, dữ liệu được lưu trong file JSON. API hỗ trợ các chức năng CRUD và tìm kiếm theo tên.
+## Cài đặt và Khởi chạy
+1. Cài đặt thư viện: `pip install flask`
+2. Chạy server: `python app.py`
+3. Server sẽ chạy tại: `http://localhost:5000/api`
 
-Cài đặt
+## Test Bằng Postman
 
-Clone repo về máy:
+### 1. Lấy danh sách sản phẩm (GET)
+* **URL:** `GET http://localhost:5000/api/products`
 
-git clone cd product_manager
-
-Cài đặt thư viện:
-
-python -m pip install -r requirements.txt
-
-Chạy server
-
-python run.py
-
-Server sẽ chạy tại http://127.0.0.1:5000.
-
-Các endpoint
-
-GET /products → Xem danh sách sản phẩm
-
-GET /product/ → Xem chi tiết sản phẩm
-
-POST /product/ → Thêm sản phẩm (Body JSON: { "name": "Laptop Dell", "price": 1500 })
-
-PUT /product/ → Sửa sản phẩm
-
-DELETE /product/ → Xóa sản phẩm
-
-GET /products/search?q=<tên> → Tìm kiếm sản phẩm theo tên
-
-Demo
-
-Dùng Postman để test các API.
-
-Quay video demo quá trình thêm, sửa, xóa, tìm kiếm sản phẩm.
-
-Upload video lên YouTube/Google Drive và chèn link tại đây.
-
-Ghi chú
-
-Đây là server Flask chạy ở chế độ development, không dùng cho production.
-
-Dữ liệu được lưu trong file products.json ngay tại thư mục dự án.
+### 2. Thêm sản phẩm mới (POST)
+* **URL:** `POST http://localhost:5000/api/products`
+* **Body (raw -> JSON):**
+  ```json
+  {
+      "spid": "SP01",
+      "name": "Laptop Dell",
+      "price": 1500.5,
+      "quantity": 10
+  }
